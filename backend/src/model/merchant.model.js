@@ -36,6 +36,12 @@ const merchantSchema = new mongoose.Schema({
     phone: {
         type: String,
         trim: true
+    },
+    picture: {
+        type: String,
+        trim: true,
+        default: "https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L2EwMDkta2Fib29tcGljcy0wODMzLmpwZw.jpg",
+        
     }
 });
 
