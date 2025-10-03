@@ -1,6 +1,7 @@
 import axios from 'axios';
 // import config from '../config/config.js';
 import { createMerchant } from '../dao/merchant.dao.js';
+import { createLike, findOneDelet } from '../dao/likeMerchant.dao.js';
 
 
 const key = "mkLHFhQI8ZJb1S4xGUht8QXwLxTATsfu"
@@ -72,3 +73,23 @@ export async function findNearbyMerchantsController(req, res) {
     }
 }
 
+
+export async function likeMerchantController(req, res) {
+    const {merchant} = req.body
+    const farmer = req.farmer
+
+    const isLikeAlready = await findOneLike({farmer, merchant})
+    if(isLikeAlready){
+        await findOneDelet({farmer: farmer._id, merchant})
+        return res.status(200).json({
+            message: "Merchant unliked successfully",
+            isLike: false
+        })
+    }
+    const like = await createLike({farmer: farmer._id, merchant})
+    return res.status(201).json({
+        message: "Merchant liked successfully",
+        isLike: true,
+        like
+    })
+}

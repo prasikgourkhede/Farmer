@@ -1,4 +1,4 @@
-import { createSeller, findOneSeller } from "../dao/seller.dao.js"
+import { createFarmer, findOneFarmer } from "../dao/seller.dao.js"
 import bcrypt from "bcryptjs"
 import jwt from "jsonwebtoken"
 import config from "../config/config.js"
@@ -10,7 +10,7 @@ import { createBuyer, findOneBuyer } from "../dao/buyer.dao.js"
 export async function farmerRegisterController(req,res){
     const {username,contactNo,email,password} = req.body
 
-    const isfarmerExist = await findOneSeller({
+    const isfarmerExist = await findOneFarmer({
         $or: [
             {username},
             {contactNo},
@@ -25,19 +25,19 @@ export async function farmerRegisterController(req,res){
 
     const hashPassword = await bcrypt.hash(password, 10)
 
-    const Faemers = await createSeller({
+    const Farmers = await createFarmer({
         username,
         contactNo,
         email,
         password:hashPassword
     })
 
-    const token = jwt.sign({id: Faemers._id} , config.JWT_SECRET_KEY)
+    const token = jwt.sign({id: Farmers._id} , config.JWT_SECRET_KEY)
     res.cookie("token", token)
 
     return res.status(201).json({
         message: "Seller created successfully",
-        Faemers:Faemers,
+        Farmers:Farmers,
         token
     })
 }
@@ -45,7 +45,7 @@ export async function farmerRegisterController(req,res){
 export async function farmerLoginController(req,res){
     const {username,email,contactNo,password} = req.body
 
-    const Farmers = await findOneSeller({
+    const Farmers = await findOneFarmer({
         $or:[
             {username},
             {contactNo},
