@@ -1,8 +1,9 @@
 import express from "express"
-import { closeAuctionController, createAuctionController, findAuctionController } from "../controller/aucion.controller.js"
+import {closeBiddingController, createAuctionController, createBiddingController, findAuctionController } from "../controller/aucion.controller.js"
 import { authFarmerMiddleware, authBuyerMiddleware } from "../middleware/auth.middleware.js"
 import { auctionValidator } from "../middleware/validator.middleware.js"
 import multer from "multer"
+import {autoCloseBiddingMiddleware } from "../middleware/closeAutomaticaly.middleware.js"
 
 const upload = multer({storage: multer.memoryStorage()})
 
@@ -26,6 +27,12 @@ router.get("/find-auction",
 
 
 
-    router.put("/close-auction", 
-        closeAuctionController);
-export default router
+router.post("/create-bidding",
+    authBuyerMiddleware,
+    createBiddingController
+)
+
+router.post("/close-bidding",
+    autoCloseBiddingMiddleware,
+    closeBiddingController
+)

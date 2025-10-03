@@ -29,7 +29,13 @@ const biddingSchema = mongoose.Schema({
         type: String,
         enum: ["ACTIVE", "CLOSED"],
         default: "ACTIVE"
+    },
+    winner: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "buyers",
+        required: false
     }
+
 })
 
 const biddingModel = mongoose.model("AuctionBidding", biddingSchema)

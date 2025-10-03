@@ -1,10 +1,10 @@
 import { createAuction, findAuction, findOneAuction } from "../dao/auction.dao.js"
 import { createBidding } from "../dao/bidding.dao.js"
 import { findBuyer } from "../dao/buyer.dao.js"
-import { closeAuction } from "../dao/closeAuction.dao.js"
 import { findFarmer } from "../dao/seller.dao.js"
 import { uploadFile } from "../services/storage.service.js"
 import {v4 as uuidv4} from "uuid"
+import { closeBidding } from "../dao/closeBidding.dao.js"
 
 
 export async function createAuctionController(req,res){
@@ -96,24 +96,6 @@ export async function findOneAuctionController(req,res){
 
 
 
-export async function closeAuctionController(req, res) {
-    const { auction_id } = req.query; // or req.params if you switch to path param
-
-    const auction = await closeAuction(auction_id);
-
-    if (!auction) {
-        return res.status(400).json({ message: "Auction not found" });
-    }
-
-    auction.status = "CLOSED";
-    await auction.save();
-
-    res.status(200).json({
-        message: "Auction closed successfully",
-        auction
-    });
-}
-
 
 export async function createBiddingController(req,res){
     const {auction_id, buyer_id, currentAmount, finalAmount} = req.body
@@ -134,3 +116,28 @@ export async function createBiddingController(req,res){
         bidding
     })
 }
+
+
+
+export async function closeBiddingController(req, res) {
+    try {
+      const { auction_id ,winner, currentAmount, finalAmount} = req.query;
+  
+      const auction = await closeBidding({
+        auction_id,
+        winner, 
+        currentAmount, 
+        finalAmount});
+  
+      if (!auction) {
+        return res.status(404).json({ message: "Auction not found" });
+      }
+  
+      res.status(200).json({
+        message: "Bidding closed successfully",
+        auction: auction,
+      });
+    } catch (error) {
+      res.status(400).json({ message: error.message });
+    }
+  }
