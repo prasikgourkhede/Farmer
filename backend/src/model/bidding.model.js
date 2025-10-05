@@ -23,7 +23,7 @@ const biddingSchema = mongoose.Schema({
     },
     time: {
         type: Date,
-        required: true
+        // required: true
     },
     status: {
         type: String,
@@ -33,11 +33,11 @@ const biddingSchema = mongoose.Schema({
     winner: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "buyers",
-        required: false
+        // required: false
     }
 
 })
 
-const biddingModel = mongoose.model("AuctionBidding", biddingSchema)
+const biddingModel = mongoose.model("bidding", biddingSchema)
 
 export default biddingModel

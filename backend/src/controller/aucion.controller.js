@@ -1,10 +1,9 @@
 import { createAuction, findAuction, findOneAuction } from "../dao/auction.dao.js"
-import { createBidding } from "../dao/bidding.dao.js"
+import { closeBidding, createBidding } from "../dao/bidding.dao.js"
 import { findBuyer } from "../dao/buyer.dao.js"
 import { findFarmer } from "../dao/seller.dao.js"
 import { uploadFile } from "../services/storage.service.js"
 import {v4 as uuidv4} from "uuid"
-import { closeBidding } from "../dao/closeBidding.dao.js"
 
 
 export async function createAuctionController(req,res){
@@ -96,20 +95,19 @@ export async function findOneAuctionController(req,res){
 
 
 
-
 export async function createBiddingController(req,res){
-    const {auction_id, buyer_id, currentAmount, finalAmount} = req.body
-    const isAuctionExist = await findOneAuction({id: auction_id})
+    const { auction_id, buyer_id, currentAmount, finalAmount} = req.body
+    const isAuctionExist = await findOneAuction({ _id: auction_id})
     if(!isAuctionExist){
         return res.status(400).json({
-            message: "Auctionon not found"
+            message: "Auction not found"
         })
     }
     const bidding = await createBidding({
-        auction_id,
-        buyer_id,
-        currentAmount,
-        finalAmount
+        auction_id: auction_id,
+        buyer_id: buyer_id,
+        currentAmount: currentAmount,
+        finalAmount: finalAmount
     })
     res.status(201).json({
         message: "bidding created successfully",
@@ -129,9 +127,9 @@ export async function closeBiddingController(req, res) {
         currentAmount, 
         finalAmount});
   
-      if (!auction) {
-        return res.status(404).json({ message: "Auction not found" });
-      }
+    //   if (auction_id) {
+    //     return res.status(404).json({ message: "Auction not found" });
+    //   }
   
       res.status(200).json({
         message: "Bidding closed successfully",
@@ -140,4 +138,4 @@ export async function closeBiddingController(req, res) {
     } catch (error) {
       res.status(400).json({ message: error.message });
     }
-  }
+}

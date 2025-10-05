@@ -1,5 +1,4 @@
-// middleware/autoCloseBidding.js
-import { closeBidding } from "../dao/closeBidding.dao.js";
+import { closeBidding } from "../dao/bidding.dao.js";
 
 // In-memory store for timers
 const biddingTimers = new Map();

@@ -32,7 +32,9 @@ router.post("/create-bidding",
     createBiddingController
 )
 
-router.post("/close-bidding",
+router.delete("/close-bidding",
     autoCloseBiddingMiddleware,
     closeBiddingController
 )
+
+export default router
