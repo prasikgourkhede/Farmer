@@ -8,12 +8,11 @@ import { createBuyer, findOneBuyer } from "../dao/buyer.dao.js"
 
 
 export async function farmerRegisterController(req,res){
-    const {username,contactNo,email,password} = req.body
+    const {username,email,password} = req.body
 
     const isfarmerExist = await findOneFarmer({
         $or: [
             {username},
-            {contactNo},
             {email}]
     })
 
@@ -27,7 +26,6 @@ export async function farmerRegisterController(req,res){
 
     const Farmers = await createFarmer({
         username,
-        contactNo,
         email,
         password:hashPassword
     })
@@ -43,12 +41,11 @@ export async function farmerRegisterController(req,res){
 }
 
 export async function farmerLoginController(req,res){
-    const {username,email,contactNo,password} = req.body
+    const {username,email,password} = req.body
 
     const Farmers = await findOneFarmer({
         $or:[
             {username},
-            {contactNo},
             {email}]
     })
     if(!Farmers){
@@ -75,12 +72,11 @@ export async function farmerLoginController(req,res){
 }
 
 export async function buyerRegisterController(req,res){
-    const {username,contactNo,email,password} = req.body
+    const {username,email,password} = req.body
 
     const isbuyerExist = await findOneBuyer({
         $or: [
             {username},
-            {contactNo},
             {email}]
     })
 
@@ -94,7 +90,6 @@ export async function buyerRegisterController(req,res){
 
     const buyers = await createBuyer({
         username,
-        contactNo,
         email,
         password:hashPassword
     })
@@ -111,12 +106,11 @@ export async function buyerRegisterController(req,res){
 
 
 export async function buyerLoginController(req,res){
-    const {username,email,contactNo,password} = req.body
+    const {username,email,password} = req.body
 
     const buyers = await findOneBuyer({
         $or:[
             {username},
-            {contactNo},
             {email}]
     })
     if(!buyers){

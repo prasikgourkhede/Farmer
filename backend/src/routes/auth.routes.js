@@ -13,12 +13,12 @@ router.post("/register",
 router.post("/login",
     farmerLoginController)
 
-router.post("/registerBuyer",
+router.post("/register-buyer",
     registerValidator,
     buyerRegisterController
 )
 
-router.post("/loginBuyer",
+router.post("/login-buyer",
     buyerLoginController
 )
 

@@ -18,9 +18,13 @@ export function autoCloseBiddingMiddleware(req, res, next) {
 
   // Start/reset a new 1-min timer
   const timer = setTimeout(async () => {
-    await closeBidding(auction_id);
-    biddingTimers.delete(auction_id);
-    console.log(`Bidding auto-closed for auction: ${auction_id}`);
+    try {
+      await closeBidding({ auction_id });
+      biddingTimers.delete(auction_id);
+      console.log(`Bidding auto-closed for auction: ${auction_id}`);
+    } catch (error) {
+      console.error(`Error auto-closing bidding for auction ${auction_id}:`, error);
+    }
   }, 60 * 1000);
 
   // Save this timer in memory

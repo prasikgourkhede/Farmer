@@ -8,12 +8,6 @@ const farmerSchema = mongoose.Schema({
         unique: true ,
         trim: true
     },
-    contactNo:{
-        type: Number,
-        required: true,
-        unique: true ,
-        trim: true
-    },
     email:{
         type: String,
         required: true,

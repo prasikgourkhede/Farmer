@@ -11,7 +11,7 @@ app.use(cookieParser())
 app.use(express.json())
 
 
-app.use("/farmer", farmerRoutes)
+app.use("/auth", farmerRoutes)
 app.use("/crop", cropRoutes)
 app.use("/merchant", merchantRoutes)
 app.use("/auction", auctionRoutes)

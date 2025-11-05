@@ -26,32 +26,21 @@ export async function findOneBidding(query){
     return bidding
 }
 
-// export async function findOneDeleteBidding(query){
-//     const {auction_id, buyer_id, currentAmount, finalAmount} = query
-//     const bidding = await biddingModel.findOneAndDelete({
-//         auction_id,
-//         buyer_id,
-//         currentAmount,
-//         finalAmount,
-//         status: "ACTIVE"
-//     })
-//     return bidding
-// }
-
 export async function closeBidding(query){
     const {auction_id, buyer_id, currentAmount, finalAmount} = query
-    const highestBid = await biddingModel.findOne({
+    const bidding = await biddingModel.findOne({
         auction_id,
         buyer_id,
         currentAmount,
         finalAmount
     })
-    .sort({currentAmount: -1})
-    .limit(1)
-    if(!highestBid){
-        return { message: "No bids placed for this auction" };
-    }
-    return highestBid
+    // highestBid = bidding.sort({currentAmount: -1})
+    // .sort({currentAmount: -1})
+    // .limit(1)
+    // if(!highestBid){
+    //     return { message: "No bids placed for this auction" };
+    // }
+    return bidding
 }
 
 export async function findOneAndUpdateBidding(query){

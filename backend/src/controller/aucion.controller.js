@@ -127,13 +127,18 @@ export async function closeBiddingController(req, res) {
         currentAmount, 
         finalAmount});
   
-    //   if (auction_id) {
-    //     return res.status(404).json({ message: "Auction not found" });
-    //   }
+      if (auction_id) {
+        return res.status(404).json({ message: "Auction not found" });
+      }
   
       res.status(200).json({
         message: "Bidding closed successfully",
-        auction: auction,
+        auction: {
+            auction_id,
+            winner,
+            currentAmount,
+            finalAmount
+        },
       });
     } catch (error) {
       res.status(400).json({ message: error.message });

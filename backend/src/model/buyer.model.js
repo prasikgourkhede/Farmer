@@ -4,7 +4,6 @@ import mongoose from "mongoose";
 const buyerSchema = mongoose.Schema({
     image:{
         type: String,
-        required: true,
         trim: true,
         default:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzzwKn9OLJK-HYY0fCCMiqwA7Pn1Pr5AW66g&s"
     },
@@ -16,7 +15,6 @@ const buyerSchema = mongoose.Schema({
     },
     contactNo:{
         type: Number,
-        required: true,
         unique: true ,
         trim: true
     },
