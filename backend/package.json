@@ -19,6 +19,10 @@
     "dotenv": "^17.2.1",
     "express": "^5.1.0",
     "express-validator": "^7.2.1",
+<<<<<<< HEAD
+=======
+    "groq-sdk": "^0.34.0",
+>>>>>>> 6cbf997bce737dd174cb95aa392129a0445af69d
     "imagekit": "^6.0.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.18.0",
