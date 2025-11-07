@@ -1,0 +1,43 @@
+import mongoose from "mongoose"
+
+
+
+const biddingSchema = mongoose.Schema({
+    auction_id: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "auctions",
+        required: true
+    },
+    buyer_id: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "buyers",
+        required: true
+    },
+    currentAmount: {
+        type: Number,
+        required: true
+    },
+    finalAmount:{
+        type: Number,
+        required: true
+    },
+    time: {
+        type: Date,
+        // required: true
+    },
+    status: {
+        type: String,
+        enum: ["ACTIVE", "CLOSED"],
+        default: "ACTIVE"
+    },
+    winner: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "buyers",
+        // required: false
+    }
+
+})
+
+const biddingModel = mongoose.model("bidding", biddingSchema)
+
+export default biddingModel
