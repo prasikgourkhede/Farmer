@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken"
 import config from "../config/config.js"
-import { findOneFarmer } from "../dao/seller.dao.js"
+import { findOneFarmer } from "../dao/farmer.dao.js"
 import { findOneBuyer } from "../dao/buyer.dao.js"
 
 

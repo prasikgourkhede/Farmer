@@ -4,16 +4,16 @@ import { createCrop } from "../dao/crop.dao.js"
 
 
 export async function createCropController(req,res){
-    const {mentions, contactNo,farmers} = req.body
+    const { cropName, contactNo, mentions } = req.body;
 
     const file = await uploadFile(req.file, uuidv4());
     
 
     const crops = await createCrop({
-        mentions,
         image: file.image,
+        cropName,
         contactNo,
-        farmers: req.user ? req.user._id : (req.farmers ? req.farmers._id : undefined)
+        mentions,
     })
 
     return res.status(201).json({

@@ -1,7 +1,7 @@
 import { createAuction, findAuction, findOneAuction } from "../dao/auction.dao.js"
 import { closeBidding, createBidding } from "../dao/bidding.dao.js"
 import { findBuyer } from "../dao/buyer.dao.js"
-import { findFarmer } from "../dao/seller.dao.js"
+import { findFarmer } from "../dao/farmer.dao.js"
 import { uploadFile } from "../services/storage.service.js"
 import {v4 as uuidv4} from "uuid"
 

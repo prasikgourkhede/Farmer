@@ -5,12 +5,14 @@ import { createLike, findOneDelet } from '../dao/likeMerchant.dao.js';
 
 const apiKey = "mkLHFhQI8ZJb1S4xGUht8QXwLxTATsfu";
 const radiusInMeters = 30000; // 30 km
-const limit = 10;
+const limit = 12;
 
 
 
 export async function findNearbyMerchantsController(req, res) {
-    const { latitude, longitude } = req.body;
+    // const { latitude, longitude } = req.body;
+    const latitude = 23.1848;
+  const longitude = 77.4799;
 
     if (!latitude || !longitude) {
         return res.status(400).json({

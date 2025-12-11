@@ -7,15 +7,14 @@ const cropSchema = mongoose.Schema({
         type: String,
         // required: true,
     },
+    cropName:{
+        type : String,
+        trim : true
+    },
     contactNo: {
         type: Number,
         required: true,
         trim: true
-    },
-    farmers: {
-        type: mongoose.Schema.Types.ObjectId,
-        required: true,
-        ref: 'farmers'
     },
     mentions:{
         type: mongoose.Schema.Types.ObjectId,

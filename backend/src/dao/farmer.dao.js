@@ -1,4 +1,4 @@
-import farmerModel from "../model/seller.model.js"
+import farmerModel from "../model/farmer.model.js"
 
 export async function createFarmer(data){
      return await farmerModel.create(data)

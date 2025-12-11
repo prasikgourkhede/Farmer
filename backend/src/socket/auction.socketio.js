@@ -47,7 +47,6 @@ export default function auctionSocket(io) {
         socket.emit("errorMessage", "Server error");
       }
     });
-
     // Close auction
     socket.on("closeAuction", async (auction_id) => {
         const auction = await findOneAuction(auction_id);

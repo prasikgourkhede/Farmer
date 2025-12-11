@@ -1,4 +1,4 @@
-import { createFarmer, findOneFarmer } from "../dao/seller.dao.js"
+import { createFarmer, findOneFarmer } from "../dao/farmer.dao.js"
 import bcrypt from "bcryptjs"
 import jwt from "jsonwebtoken"
 import config from "../config/config.js"
