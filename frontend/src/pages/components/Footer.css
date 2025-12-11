@@ -1,0 +1,244 @@
+.footer {
+    background: #ffffff;
+    border-top: 1px solid #e5e7eb;
+    margin-top: auto;
+  }
+  
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  /* Main Footer Content */
+  .footer-main {
+    padding: 50px 0 30px;
+  }
+  
+  .footer-brand-section {
+    text-align: center;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .footer-brand {
+    font-size: 28px;
+    font-weight: 700;
+    color: #059669;
+    margin: 0 0 16px 0;
+  }
+  
+  .footer-description {
+    color: #6b7280;
+    line-height: 1.6;
+    font-size: 16px;
+    margin: 0;
+  }
+  
+  /* Links Grid */
+  .footer-links-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+  
+  .footer-column-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 0 0 20px 0;
+    border-bottom: 2px solid #059669;
+    padding-bottom: 8px;
+  }
+  
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .footer-links li a {
+    color: #6b7280;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    display: block;
+    padding: 6px 0;
+    border-bottom: 1px solid transparent;
+  }
+  
+  .footer-links li a:hover {
+    color: #059669;
+    transform: translateX(5px);
+    border-bottom-color: #d1fae5;
+  }
+  
+  /* Contact Section */
+  .footer-contact-section {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 30px;
+    margin: 30px 0;
+  }
+  
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+  
+  .contact-info h4,
+  .quick-links h4 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 0 0 20px 0;
+  }
+  
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #6b7280;
+    font-size: 14px;
+  }
+  
+  .contact-icon {
+    font-size: 16px;
+    width: 20px;
+    text-align: center;
+  }
+  
+  .govt-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  
+  .govt-links a {
+    color: #6b7280;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 6px 0;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid transparent;
+  }
+  
+  .govt-links a:hover {
+    color: #059669;
+    border-bottom-color: #059669;
+  }
+  
+  /* Bottom Footer */
+  .footer-bottom {
+    padding: 24px 0;
+    border-top: 1px solid #f3f4f6;
+  }
+  
+  .footer-bottom-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .copyright {
+    color: #6b7280;
+    font-size: 14px;
+  }
+  
+  .copyright p {
+    margin: 0;
+  }
+  
+  .footer-actions {
+    display: flex;
+    gap: 12px;
+  }
+  
+  .footer-btn {
+    padding: 10px 16px;
+    background: white;
+    color: #374151;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  .footer-btn:hover {
+    background: #f9fafb;
+    border-color: #9ca3af;
+    transform: translateY(-1px);
+    text-decoration: none;
+    color: #374151;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .footer-links-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .footer-links-grid {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+    
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+    
+    .footer-bottom-content {
+      flex-direction: column;
+      text-align: center;
+      gap: 16px;
+    }
+    
+    .footer-actions {
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    .govt-links {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .footer-contact-section {
+      padding: 20px;
+    }
+    
+    .footer-brand-section {
+      margin-bottom: 30px;
+    }
+    
+    .footer-brand {
+      font-size: 24px;
+    }
+    
+    .footer-description {
+      font-size: 14px;
+    }
+  }

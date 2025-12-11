@@ -1,0 +1,230 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'helvetica now display';
+  }
+  
+  .navbar {
+    background: #ffffff;
+    border-bottom: 1px solid #dddddd;
+    padding: 0 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  
+  .nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px 0;
+  }
+  
+  /* Logo */
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    padding: 8px;
+  }
+  
+  .logo-icon {
+    font-size: 24px;
+  }
+  
+  .logo-text {
+    font-size: 20px;
+    font-weight: 700;
+    color: #2d5016;
+  }
+  
+  /* Navigation Tabs */
+  .nav-tabs {
+    display: flex;
+    gap: 8px;
+    padding: 8px;
+  }
+  
+  .nav-tab {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 12px;
+    border: none;
+    background: transparent;
+    font-size: 17px;
+    font-weight: 500;
+    color: #5e5e5e;
+    cursor: pointer;
+    border-radius: 22px;
+    text-decoration: none;
+    transition: color 0.2s ease, font-weight 0.2s ease;
+  }
+  
+  .nav-tab:hover {
+    color: #000000;
+  }
+  
+  /* When route is active */
+  .nav-tab.active {
+    color: #000000;
+    font-weight: 700;
+    background: transparent !important; /* Ensure no background */
+  }
+  
+  .tab-icon {
+    font-size: 23px;
+  }
+  .tab-text{
+    font-size: 19px;
+  }
+  /* Right Section - Airbnb Style */
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  .host-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 15px;
+    border: none;
+    background: transparent;
+    font-size: 14px;
+    font-weight: 500;
+    color: #5e5e5e;
+    cursor: pointer;
+    border-radius: 22px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+  }
+  
+  .host-btn:hover {
+    background: #f7f7f7;
+    color: #000000;
+  }
+  
+  .host-icon {
+    font-size: 30px;
+  }
+  .host-text{
+    font-size: 19px;
+  }
+  
+  .global-menu {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 22px;
+    transition: all 0.2s ease;
+  }
+  
+  .global-menu:hover {
+    background: #f7f7f7;
+  }
+  
+  .globe-icon {
+    font-size: 30px;
+  }
+  
+  .user-menu {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 8px 8px 16px;
+    border: 1px solid #dddddd;
+    border-radius: 24px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: #ffffff;
+  }
+  
+  .user-menu:hover {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .menu-icon {
+    font-size: 16px;
+    color: #5e5e5e;
+  }
+  
+  .avatar-icon {
+    font-size: 20px;
+    background: #717171;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .navbar {
+      padding: 0 16px;
+    }
+  
+    .nav-container {
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+  
+    .nav-tabs {
+      order: 2;
+      flex: 1;
+      min-width: 200px;
+      justify-content: center;
+      gap: 4px;
+    }
+  
+    .nav-right {
+      order: 3;
+    }
+  
+    .host-text, .global-menu {
+      display: none;
+    }
+  
+    .host-btn {
+      padding: 12px;
+    }
+  
+    .user-menu {
+      padding: 6px 6px 6px 12px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .nav-logo .logo-text {
+      font-size: 18px;
+    }
+  
+    .nav-tabs {
+      gap: 2px;
+    }
+  
+    .nav-tab {
+      padding: 10px 12px;
+      font-size: 13px;
+    }
+  
+    .tab-text {
+      display: none;
+    }
+  
+    .nav-tab {
+      padding: 12px;
+    }
+  }

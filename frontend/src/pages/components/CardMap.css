@@ -1,0 +1,228 @@
+/* ========== General Container ========== */
+.map-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 900px;
+  margin: 30px auto;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  background: #fff;
+  position: relative;
+  font-family: "Poppins", sans-serif;
+  transition: all 0.3s ease;
+}
+
+/* ========== Info Card ========== */
+.info-card {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  padding: 20px;
+  gap: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.shop-image {
+  width: 130px;
+  height: 130px;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.shop-details {
+  flex: 1;
+}
+
+.shop-details h2 {
+  margin: 0 0 8px 0;
+  color: #2c3e50;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.subtitle {
+  margin: 0 0 10px 0;
+  color: #7f8c8d;
+  font-size: 14px;
+}
+
+.rating {
+  margin: 0 0 12px 0;
+  color: #e67e22;
+  font-weight: bold;
+}
+
+.distance {
+  color: #27ae60;
+  font-weight: 600;
+  margin: 8px 0;
+  font-size: 15px;
+}
+
+.loading {
+  color: #3498db;
+  margin: 8px 0;
+  font-weight: 500;
+}
+
+.error {
+  color: #e74c3c;
+  margin: 8px 0;
+  font-weight: 500;
+}
+
+/* ========== Buttons ========== */
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+button {
+  transition: all 0.25s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #e74c3c, #ff6347);
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #c0392b, #e74c3c);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: #f4f6f7;
+  color: #2c3e50;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.btn-secondary:hover {
+  background: #e0e0e0;
+  transform: translateY(-2px);
+}
+
+/* ========== Map Section ========== */
+.map-view {
+  height: 420px;
+  position: relative;
+  background: #f0f2f5;
+  border-top: 1px solid #eee;
+}
+
+.map-loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px 25px;
+  border-radius: 10px;
+  z-index: 1000;
+  font-weight: bold;
+  font-size: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* ========== Map Legend ========== */
+.map-legend {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 10px 15px;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+  z-index: 100;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin: 6px 0;
+}
+
+.legend-color {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  margin-right: 8px;
+  border: 2px solid #fff;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+
+.legend-color.user {
+  background: #007bff;
+}
+
+.legend-color.shop {
+  background: #ff4444;
+}
+
+/* ========== Custom Marker ========== */
+.user-marker {
+  position: relative;
+  z-index: 100;
+  filter: drop-shadow(0 3px 4px rgba(0, 0, 0, 0.35));
+  pointer-events: auto;
+  transition: transform 0.2s ease;
+}
+
+.user-marker:hover {
+  transform: scale(1.1);
+}
+
+/* ========== Mobile Responsive ========== */
+@media (max-width: 768px) {
+  .map-container {
+    margin: 15px;
+    max-width: 100%;
+  }
+
+  .info-card {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .shop-image {
+    width: 100%;
+    height: 180px;
+  }
+
+  .map-view {
+    height: 350px;
+  }
+
+  .buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    text-align: center;
+  }
+
+  .map-legend {
+    bottom: 15px;
+    left: 15px;
+    font-size: 12px;
+  }
+}

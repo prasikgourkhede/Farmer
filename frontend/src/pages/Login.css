@@ -1,0 +1,177 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.farmer-login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.farmer-login-card {
+  background: white;
+  padding: 48px 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 440px;
+  border: 1px solid #e1e5e9;
+}
+
+.farmer-login-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.farmconnect-title {
+  color: #2d5016;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+
+.welcome-back-farmer {
+  color: #1a1a1a;
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.signin-subtitle {
+  color: #666;
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin: 0;
+}
+
+.farmer-login-form {
+  margin-bottom: 24px;
+}
+
+.input-group {
+  margin-bottom: 24px;
+}
+
+.input-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
+  font-size: 14px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid #e1e5e9;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background-color: #fafbfc;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #4a7c3a;
+  background-color: white;
+  box-shadow: 0 0 0 3px rgba(74, 124, 58, 0.1);
+}
+
+.form-input::placeholder {
+  color: #999;
+}
+
+.form-options {
+  display: flex;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #555;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.checkbox-label input {
+  margin-right: 12px;
+  width: 18px;
+  height: 18px;
+  accent-color: #4a7c3a;
+}
+
+.farmer-signin-btn {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #4a7c3a 0%, #3a6c2a 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: none;
+  letter-spacing: 0.5px;
+}
+
+.farmer-signin-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(74, 124, 58, 0.3);
+}
+
+.farmer-signin-btn:active {
+  transform: translateY(0);
+}
+
+.farmer-signup-section {
+  text-align: center;
+  padding-top: 24px;
+  border-top: 1px solid #e1e5e9;
+}
+
+.farmer-signup-section p {
+  color: #666;
+  font-size: 15px;
+  margin: 0;
+}
+
+.signup-link {
+  color: #4a7c3a;
+  font-weight: 600;
+  cursor: pointer;
+  margin-left: 8px;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.signup-link:hover {
+  color: #3a6c2a;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+  .farmer-login-card {
+    padding: 32px 24px;
+    margin: 20px;
+  }
+  
+  .farmconnect-title {
+    font-size: 2rem;
+  }
+  
+  .welcome-back-farmer {
+    font-size: 1.5rem;
+  }
+}
