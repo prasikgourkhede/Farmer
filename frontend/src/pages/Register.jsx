@@ -78,15 +78,6 @@ function Register() {
               required
             />
           </div>
-
-          {/* <div className="terms-agreement">
-            <label className="checkbox-label">
-              <input type="checkbox" required />
-              <span className="checkmark"></span>
-              I agree to the <a href="#" className="terms-link">Terms of Service</a> and <a href="#" className="terms-link">Privacy Policy</a>
-            </label>
-          </div> */}
-
           <button type="submit" className="signup-btn">
             Sign up as farmer
           </button>

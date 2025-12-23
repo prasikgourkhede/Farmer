@@ -3,10 +3,9 @@ import "./Merchants.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const Merchants = () => {
+const Merchants = ({ userLocation }) => {
   const navigate = useNavigate();
   const [favorites, setFavorites] = useState({});
-  const [location, setLocation] = useState(null);
   const [merchants, setMerchants] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -18,42 +17,19 @@ const Merchants = () => {
     }));
   };
 
-  // Step 1: Get current geolocation
-  
-  useEffect(() => {
-    if (!navigator.geolocation) {
-      setError("Geolocation is not supported by your browser.");
-      setLoading(false);
-      return;
-    }
+  // ❌ REMOVED navigator.geolocation
+  // ✅ USING location from Home
 
-    navigator.geolocation.getCurrentPosition(
-      (pos) => {
-        console.log("📍 Current Location:", pos.coords.latitude, pos.coords.longitude);
-        setLocation({
-          lat: pos.coords.latitude,
-          lng: pos.coords.longitude,
-        });
-      },
-      (err) => {
-        console.error("Location error:", err);
-        setLoading(false);
-      },
-      { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
-    );
-  }, []);
-
-  // Step 2: Fetch merchants near the current location
   useEffect(() => {
     const fetchMerchants = async () => {
-      if (!location) return;
+      if (!userLocation?.lat || !userLocation?.lng) return;
 
       try {
         const response = await axios.post(
           "http://localhost:3000/merchant/nearby",
           {
-            latitude: location.lat,
-            longitude: location.lng,
+            latitude: userLocation.lat,
+            longitude: userLocation.lng,
           },
           { withCredentials: true }
         );
@@ -68,13 +44,15 @@ const Merchants = () => {
     };
 
     fetchMerchants();
-  }, [location]);
+  }, [userLocation]);
 
-  // Step 3: Render UI states
+  // UI STATES — UNCHANGED
   if (loading) {
     return (
       <div className="farm-listings">
-        <div className="loading">Fetching farms near your current location...</div>
+        <div className="loading">
+          Fetching farms near your current location...
+        </div>
       </div>
     );
   }
@@ -87,6 +65,7 @@ const Merchants = () => {
     );
   }
 
+  // UI — UNCHANGED
   return (
     <div className="farm-listings">
       <div className="listings-header">
@@ -100,7 +79,14 @@ const Merchants = () => {
             <div
               key={merchant.id}
               className="farm-card"
-              onClick={() => navigate("/cardmap", { state: merchant })}
+              onClick={() =>
+                navigate("/cardmap", {
+                  state: {
+                    merchant,
+                    userLocation, // ✅ pass Home location forward
+                  },
+                })
+              }
             >
               <div className="farm-image-container">
                 <img
@@ -126,7 +112,11 @@ const Merchants = () => {
                 <h3>{merchant.name}</h3>
                 <p className="farm-location">{merchant.address}</p>
                 <p className="farm-distance">{merchant.distance} away</p>
-                <p className={`farm-phone ${merchant.phone ? "active" : ""}`}>
+                <p
+                  className={`farm-phone ${
+                    merchant.phone ? "active" : ""
+                  }`}
+                >
                   📞 {merchant.phone || "Not available"}
                 </p>
               </div>

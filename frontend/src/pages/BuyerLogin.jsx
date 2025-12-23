@@ -58,15 +58,6 @@ function BuyerLogin() {
               required
             />
           </div>
-
-          {/* <div className="form-options">
-            <label className="checkbox-label">
-              <input type="checkbox" />
-              <span className="checkmark"></span>
-              Remember me
-            </label>
-          </div> */}
-
           <button type="submit" className="buyer-signin-btn">
             Sign in as buyer
           </button>

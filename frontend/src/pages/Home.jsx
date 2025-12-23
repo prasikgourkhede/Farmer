@@ -1,21 +1,15 @@
-import './Home.css'
+import "./Home.css";
 import React, { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
 import Merchants from "./components/Merchants";
-import Footer from './components/Footer';
-import axios from "axios"
+import Footer from "./components/Footer";
+import axios from "axios";
+
 const Home = () => {
-  const [location, setLocation] = useState({
-    lat: null,
-    lng: null,
-    accuracy: null,
-  });
+  const [location, setLocation] = useState(null);
 
   useEffect(() => {
-    if (!navigator.geolocation) {
-      console.error("Geolocation not supported by this browser.");
-      return;
-    }
+    if (!navigator.geolocation) return;
 
     const watchId = navigator.geolocation.watchPosition(
       (pos) => {
@@ -25,30 +19,33 @@ const Home = () => {
           accuracy: pos.coords.accuracy,
         });
       },
-      (err) => {
-        console.error("Error getting location:", err);
-      },
-      {
-        enableHighAccuracy: true,
-        timeout: 10000,
-        maximumAge: 0,
-      }
+      (err) => console.error(err),
+      { enableHighAccuracy: true }
     );
 
-    // Cleanup watcher when component unmounts
     return () => navigator.geolocation.clearWatch(watchId);
   }, []);
 
-      axios.post("http://localhost:3000/merchant/nearby", {latitude: location.lat, longitude: location.lng}, {withCredentials: true}).then(response=>{
-        console.log(response.data);
-      })
+  useEffect(() => {
+    if (!location) return;
+
+    axios.post(
+      "http://localhost:3000/merchant/nearby",
+      {
+        latitude: location.lat,
+        longitude: location.lng,
+      },
+      { withCredentials: true }
+    );
+  }, [location]);
+
   return (
     <div className="home-section">
       <Navbar />
-      <Merchants />
-      <Footer /> 
+      <Merchants userLocation={location} />
+      <Footer />
     </div>
   );
-}
+};
 
-export default Home
+export default Home;

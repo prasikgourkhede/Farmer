@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { createMerchant } from '../dao/merchant.dao.js';
 import { createLike, findOneDelet } from '../dao/likeMerchant.dao.js';
 
 

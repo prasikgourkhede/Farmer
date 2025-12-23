@@ -64,14 +64,6 @@ function Login() {
             />
           </div>
 
-          {/* <div className="form-options">
-            <label className="checkbox-label">
-              <input type="checkbox" />
-              <span className="checkmark"></span>
-              Remember me
-            </label>
-          </div> */}
-
           <button type="submit" className="farmer-signin-btn">
             Sign in as farmer
           </button>

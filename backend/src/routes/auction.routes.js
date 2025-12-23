@@ -1,5 +1,5 @@
 import express from "express"
-import {closeBiddingController, createAuctionController, createBiddingController, findAuctionController } from "../controller/aucion.controller.js"
+import {closeBiddingController, createAuctionController, createBiddingController, findAuctionController } from "../controller/auction.controller.js"
 import { authFarmerMiddleware, authBuyerMiddleware } from "../middleware/auth.middleware.js"
 import { auctionValidator } from "../middleware/validator.middleware.js"
 import multer from "multer"

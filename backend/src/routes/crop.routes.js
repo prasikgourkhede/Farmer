@@ -7,7 +7,7 @@ const upload = multer({storage: multer.memoryStorage()})
 const router = express.Router()
 
 
-router.post("/corpin",
+router.post("/corp",
     authFarmerMiddleware,
     upload.single("image"),
     createCropController

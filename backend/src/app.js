@@ -20,7 +20,7 @@ app.get("/", (req,res)=>{
     res.send("hello world")
 })
 app.use("/auth", farmerRoutes)
-app.use("/crop", cropRoutes)
+app.use("/", cropRoutes)
 app.use("/merchant", merchantRoutes)
 app.use("/auction", auctionRoutes)
 app.use("/ai", aiPlantRoutes)
